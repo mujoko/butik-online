@@ -1,0 +1,38 @@
+region = "ap-southeast-1"
+name   = "butik-online"
+
+azs = [
+  "ap-southeast-1a",
+  "ap-southeast-1b",
+  "ap-southeast-1c",
+]
+
+private_subnets = [
+  "10.0.0.0/19",
+  "10.0.32.0/19",
+  "10.0.64.0/19",
+]
+
+public_subnets = [
+  "10.0.96.0/20",
+  "10.0.112.0/20",
+  "10.0.128.0/20",
+]
+
+node_group_defaults = {
+  instance_types = ["t3.small"]
+  desired_size   = 2
+  min_size       = 2
+  max_size       = 4
+  capacity_type  = "ON_DEMAND"
+}
+
+eks_cluster_version = "1.33"
+
+enable_irsa = true
+
+tags = {
+  Project     = "butik-online-eks"
+  Environment = "demo"
+  ManagedBy   = "Terraform"
+}
