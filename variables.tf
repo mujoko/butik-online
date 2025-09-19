@@ -73,3 +73,52 @@ variable "tags" {
     ManagedBy   = "Terraform"
   }
 }
+
+# Datadog monitoring toggle and configuration
+variable "datadog_enable" {
+  description = "Enable Datadog monitoring via Helm"
+  type        = bool
+  default     = false
+}
+
+variable "datadog_namespace" {
+  description = "Namespace to install Datadog"
+  type        = string
+  default     = "datadog"
+}
+
+variable "datadog_site" {
+  description = "Datadog site, e.g. datadoghq.com, ap2.datadoghq.com"
+  type        = string
+  default     = "ap2.datadoghq.com"
+}
+
+variable "datadog_api_key" {
+  description = "Datadog API key (sensitive). Prefer providing via TF_VAR_datadog_api_key"
+  type        = string
+  sensitive   = true
+}
+
+variable "datadog_enable_logs" {
+  description = "Enable Datadog logs collection"
+  type        = bool
+  default     = false
+}
+
+variable "datadog_enable_apm" {
+  description = "Enable Datadog APM (tracing)"
+  type        = bool
+  default     = false
+}
+
+variable "datadog_enable_process" {
+  description = "Enable Datadog process collection"
+  type        = bool
+  default     = false
+}
+
+variable "datadog_enable_orchestrator" {
+  description = "Enable Datadog Orchestrator Explorer"
+  type        = bool
+  default     = false
+}
