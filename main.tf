@@ -1,7 +1,7 @@
 # Root composition per infrastructure.md
 
 terraform {
-  backend "local" {}
+  backend "s3" {}
 }
 
 locals {
